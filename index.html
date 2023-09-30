@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    </head>
+    <body>
+        <a-scene>
+            <!--------------------------Asset mangement------------------------------------>
+            <a-assets timeout="10000">
+                <img id="bg" src="./images/sky.jpg">
+                <a-asset-item id="tiger" src="./models/Tiger/scene.gltf"></a-asset-item>
+            </a-assets>
+            <a-sky src="#bg"></a-sky>
+            <!--------------------------Light in the Scene------------------------------------>
+            <!--Ambient-->
+            <a-entity light="type:ambient; intensity:0.5;"></a-entity>
+            <!--Directional-->
+            <a-entity>
+            <a-entity light="type:directional; castShadow:true; intensity:1; distance:50; decay:2; colour:green" 
+            position="-100 18 20"></a-entity>
+            </a-entity>
+            <!--------------------------3D Models------------------------------------>
+            <a-entity>
+            <a-entity position="-5 0 0" rotation="0 55 0" scale="0.05 0.05 0.05" gltf-model="#tiger"></a-entity>
+            </a-entity>
+           <!--------------------------Ground------------------------------------>
+           <a-circle position="-0.4 -0.76 -25" rotation="-90 0 0" radius="100" shadow="receive:true" visible="true" colour="dark greem"></a-circle>
+        </a-scene>
+    </body>
+</html>
